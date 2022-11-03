@@ -36,10 +36,10 @@ def main():
         df = pd.DataFrame()
         if submitted:
             try:
-                st.write("결과는 전체리뷰 최근 2000건 기준입니다.")
+                st.write("최신 1500건 리뷰 기준입니다.")
                 auth_token= st.secrets['crema_token']
                 head = {'Authorization': 'Bearer ' + auth_token}
-                for i in range (1,20):
+                for i in range (1,15):
                     url = f'https://api.cre.ma/v1/reviews?brand_id=1927&product_code={product_id}&limit=100&date_order_desc=1&page={i}'
                     response = requests.get(url, headers=head)
                     data = response.json()
@@ -69,7 +69,7 @@ def main():
                 st.write("결과는 전체리뷰 최근 2000건 기준입니다.")
                 auth_token = st.secrets['crema_token']
                 head = {'Authorization': 'Bearer ' + auth_token}
-                for i in range (1,10):
+                for i in range (1,15):
                     url = f'https://api.cre.ma/v1/reviews?brand_id=1927&product_code={product_id}&limit=100&date_order_desc=1&page={i}'
                     response = requests.get(url, headers=head)
                     data = response.json()
