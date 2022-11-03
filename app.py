@@ -44,9 +44,12 @@ def main():
                     url = f'https://api.cre.ma/v1/reviews?brand_id=1927&product_code={product_id}&limit=100&date_order_desc=1&page={i}'
                     response = requests.get(url, headers=head)
                     data = response.json()
-                    df_temp = pd.DataFrame(data, index=None)
-                    df_temp.drop(['id','code','user_name','display', 'user_id', 'user_code', 'product_id', 'review_type','images_count', 'images', 'videos_count', 'video_urls', 'likes_count', 'plus_likes_count', 'comments_count', 'options', 'product_options', 'order_code', 'sub_order_code','source'],axis=1,inplace=True)
-                    df = pd.concat([df,df_temp])
+                    try:
+                        df_temp = pd.DataFrame(data, index=None)
+                        df_temp.drop(['id','code','user_name','display', 'user_id', 'user_code', 'product_id', 'review_type','images_count', 'images', 'videos_count', 'video_urls', 'likes_count', 'plus_likes_count', 'comments_count', 'options', 'product_options', 'order_code', 'sub_order_code','source'],axis=1,inplace=True)
+                        df = pd.concat([df,df_temp])
+                    except:
+                        pass
                 df
             
                 #워드클라우드 생성
@@ -74,9 +77,12 @@ def main():
                     url = f'https://api.cre.ma/v1/reviews?brand_id=1927&product_code={product_id}&limit=100&date_order_desc=1&page={i}'
                     response = requests.get(url, headers=head)
                     data = response.json()
-                    df_temp = pd.DataFrame(data, index=None)
-                    df_temp.drop(['id','code','user_name','display', 'user_id', 'user_code', 'product_id', 'review_type','images_count', 'images', 'videos_count', 'video_urls', 'likes_count', 'plus_likes_count', 'comments_count', 'options', 'product_options', 'order_code', 'sub_order_code','source'],axis=1,inplace=True)
-                    df = pd.concat([df,df_temp])
+                    try:
+                        df_temp = pd.DataFrame(data, index=None)
+                        df_temp.drop(['id','code','user_name','display', 'user_id', 'user_code', 'product_id', 'review_type','images_count', 'images', 'videos_count', 'video_urls', 'likes_count', 'plus_likes_count', 'comments_count', 'options', 'product_options', 'order_code', 'sub_order_code','source'],axis=1,inplace=True)
+                        df = pd.concat([df,df_temp])
+                    except:
+                        pass
                 df_bad = df.loc[(df['score']<3)]
                 df_bad
 
