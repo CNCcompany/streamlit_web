@@ -15,7 +15,8 @@ stopwords.update(['에 등록된 네이버 페이 구매평','등록된 네이�
 
 #워드클라우드 옵션 세팅
 wordcloud = WordCloud(
-    font_path='C:\\Users\\COMPUTER\\Desktop\\streamlit_web\\NanumFontSetup_TTF_BARUNGOTHIC\\NanumBarunGothic.ttf',
+    # font_path='C:\\Users\\COMPUTER\\Desktop\\streamlit_web\\NanumFontSetup_TTF_BARUNGOTHIC\\NanumBarunGothic.ttf',
+    font_path='./NanumFontSetup_TTF_BARUNGOTHIC/NanumBarunGothic.ttf',
     width= 1200,
     height=800,
     stopwords=stopwords,
