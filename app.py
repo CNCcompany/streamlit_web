@@ -23,7 +23,7 @@ wordcloud = WordCloud(
     collocations=False,
 )
 
-#메인 함수
+#메인 함수 - 최근 1500건의 리뷰를 조회하여 워드클라우드를 그림
 def main():
     st.title("Crema")
     with st.form("product_id_form"):
@@ -98,6 +98,7 @@ def main():
                 plt.axis("off")
                 #streamlit pyplot 오류 해결
                 st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.pyplot()
             except ValueError:
                 st.error('존재하는 상품번호를 입력하세요')
 
